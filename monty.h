@@ -18,9 +18,11 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern char *g_arg;
+
+void free_stack(stack_t **stack);
+void run_opcode(char *op, char *arg, stack_t **stack, unsigned int ln);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 
-extern char *push_arg;
-
-#endif /* MONTY_H */
+#endif
