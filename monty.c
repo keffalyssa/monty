@@ -22,6 +22,7 @@ free(*stack);
 /**
  * run_opcode - finds and executes the matching opcode
  * @op: opcode string
+ * @arg: argument for the opcode
  * @stack: pointer to stack
  * @ln: line number
  */
