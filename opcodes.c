@@ -123,3 +123,25 @@ tmp = (*stack)->n;
 (*stack)->n = (*stack)->next->n;
 (*stack)->next->n = tmp;
 }
+
+/**
+ * op_add - adds the top two elements of the stack
+ * @stack: pointer to the top of the stack
+ * @line_number: current line number
+ */
+void op_add(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp;
+
+if (!*stack || !(*stack)->next)
+{
+fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+free_stack(stack);
+exit(EXIT_FAILURE);
+}
+(*stack)->next->n += (*stack)->n;
+tmp = *stack;
+*stack = (*stack)->next;
+(*stack)->prev = NULL;
+free(tmp);
+}
