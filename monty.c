@@ -38,6 +38,7 @@ instruction_t ops[] = {
 		{"add", op_add},
 		{"nop", op_nop},
 		{"div", op_div},
+		{"sub", op_sub},
 {NULL, NULL}
 };
 
