@@ -24,6 +24,7 @@ void free_stack(stack_t **stack);
 void run_opcode(char *op, char *arg, stack_t **stack, unsigned int ln);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
+void op_div(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
