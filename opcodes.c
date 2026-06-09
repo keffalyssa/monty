@@ -228,3 +228,31 @@ tmp = *stack;
 (*stack)->prev = NULL;
 free(tmp);
 }
+
+/**
+ * op_mod - computes the rest of the division of the second top by the top
+ * @stack: pointer to the top of the stack
+ * @line_number: current line number
+ */
+void op_mod(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp;
+
+if (!*stack || !(*stack)->next)
+{
+fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+free_stack(stack);
+exit(EXIT_FAILURE);
+}
+if ((*stack)->n == 0)
+{
+fprintf(stderr, "L%u: division by zero\n", line_number);
+free_stack(stack);
+exit(EXIT_FAILURE);
+}
+(*stack)->next->n %= (*stack)->n;
+tmp = *stack;
+*stack = (*stack)->next;
+(*stack)->prev = NULL;
+free(tmp);
+}
